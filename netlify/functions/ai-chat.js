@@ -13,8 +13,8 @@ const MIN_REQUIRED_TOKENS = 2000 // Define a minimum threshold
 const MAX_FILE_SIZE = 2 * 1024 * 1024 // Example: 2MB size limit
 
 // Initialize the tokenizer for GPT-4
-const tokenizer = encoding_for_model('gpt-4')
-
+//const tokenizer = encoding_for_model('gpt-4')
+const tokenizer = encoding_for_model('gpt-4o')
 // Function to calculate tokens and pad if needed
 function padTokensIfNeeded(messages, timelineData) {
   let totalTokens = 0
