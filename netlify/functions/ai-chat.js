@@ -152,7 +152,7 @@ const handler = async (event) => {
 
       const params = {
         messages: chatHistory,
-        model: 'gpt-4'
+        model: 'gpt-4o'
       }
 
       const response = await openai.chat.completions.create(params)
