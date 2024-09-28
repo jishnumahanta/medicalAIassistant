@@ -8,13 +8,17 @@ const openai = new OpenAI({
   apiKey: process.env.VITE_OPENAI_API_KEY
 })
 
-const MAX_TOKENS = 4096 // Example: GPT-4 (4k tokens context window)
+const MAX_TOKENS = 32768 // Example: GPT-4o (32k tokens context window)
+
+
+//const MAX_TOKENS = 4096 // Example: GPT-4 (4k tokens context window)
 const MIN_REQUIRED_TOKENS = 2000 // Define a minimum threshold
 const MAX_FILE_SIZE = 2 * 1024 * 1024 // Example: 2MB size limit
 
 // Initialize the tokenizer for GPT-4
 //const tokenizer = encoding_for_model('gpt-4')
 const tokenizer = encoding_for_model('gpt-4o')
+
 // Function to calculate tokens and pad if needed
 function padTokensIfNeeded(messages, timelineData) {
   let totalTokens = 0
