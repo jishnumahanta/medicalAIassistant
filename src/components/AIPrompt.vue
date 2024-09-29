@@ -276,6 +276,7 @@ const saveToNosh = async () => {
 
 // Send query to OpenAI
 const sendQuery = () => {
+  try {
   appState.isLoading.value = true
   appState.activeQuestion.value = {
     role: 'user',
@@ -305,6 +306,12 @@ const sendQuery = () => {
       window.scrollTo(0, document.body.scrollHeight)
     }, 100)
   })
+}
+  catch (error) {
+    console.error('Error sending query:', error)
+    writeMessage('Error sending query', 'error')
+    appState.isLoading.value = false
+  }
 }
 function validateFileSize(file: File) {
   if (!file) {
