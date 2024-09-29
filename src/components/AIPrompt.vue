@@ -385,6 +385,8 @@ const closeSession = () => {
 </script>
 
 <template>
+
+  <router-view keep-alive />
   <q-file v-model="fileFormState.file" filled counter multiple append @input="uploadFile">
     <template v-slot:prepend>
       <q-icon name="attach_file"></q-icon>
