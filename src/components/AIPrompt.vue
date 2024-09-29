@@ -395,23 +395,23 @@ const closeSession = () => {
   <div class="chat-area" id="chat-area">
     <div v-for="(x, idx) in chatHistory" :key="idx">
       <q-chat-message
-        :name="x.role"
-        v-if="x.role !== 'system' && !appState.editBox.value.includes(idx)"
-        size="8"
-        :sent="x.role === 'user'"
-        ><div>
-          <q-btn
-            dense
-            flat
-            size="sm"
-            icon="edit"
-            :class="['edit-button', x.role.toString()]"
-            v-if="!appState.editBox.value.includes(idx)"
-            @click="editMessage(idx)"
-          ></q-btn>
-          <vue-markdown :source="x.content" />
-        </div>
-      </q-chat-message>
+  :name="x.role ? x.role.toString() : ''"
+  v-if="x.role !== 'system' && !appState.editBox.value.includes(idx)"
+  size="8"
+  :sent="x.role === 'user'"
+  ><div>
+    <q-btn
+      dense
+      flat
+      size="sm"
+      icon="edit"
+      :class="['edit-button', x.role ? x.role.toString() : '']"
+      v-if="!appState.editBox.value.includes(idx)"
+      @click="editMessage(idx)"
+    ></q-btn>
+    <vue-markdown :source="x.content" />
+  </div>
+</q-chat-message>
       <q-chat-message
         size="8"
         class="edit-chat"
